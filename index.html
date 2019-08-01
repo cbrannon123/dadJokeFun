@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Api Sandbox</title>
+
+
+</head>
+<style>
+
+    body {
+       background: rgb(220, 217, 235);
+        padding: 0;
+        margin: 0;
+    }
+
+    header {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        justify-items: center;
+        border: 3px solid black;
+        margin: 1px;
+        padding: 3px;
+        text-align: center;
+        height: 20vmin;
+        background: rgb(255, 255, 0);
+        font-size: 20px;
+        
+    }
+     header > p {
+         margin-top: -20px;
+     }
+
+    .jokeContainer {
+      display: flex;
+      flex-flow: column nowrap;
+      justify-items: center;
+      justify-content: center;
+      
+       
+        
+    }
+
+   
+
+    #getJoke {
+        border-radius: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        justify-items: center;
+        text-align: center;
+        font-weight: 900;
+        padding: 10px;
+       height: 80px;
+       width: 80px;
+       background: yellow;
+       color: black;
+       border: solid black 1px;
+       margin: 10px;
+
+    }
+
+    .jokeBox {
+        border: 1px solid black;
+        height: 30vmin;
+        text-align: center;
+        padding: 10px;
+        margin: 10px;
+        background: white;
+        
+       
+    }
+
+    img {
+        width: 80vmin;
+        padding: 10px;
+        
+    }
+
+    p {
+        font-size: 20px;
+
+    }
+
+   
+
+
+    
+</style>
+
+<body>
+    <header>
+        <h1>Fresh Dad Jokes</h1> 
+        <p>You're old</p>
+    </header>
+    <div class="jokeContainer">
+        <div class='jokeBox'><p id="jokes"></p></div>
+        <div style="align-self: center;" id='getJoke'>Get Joke</div>
+    </div>
+    <img src="https://static.ezgif.com/images/bg-transparent.gif">
+
+
+    <script>
+
+        document.getElementById('getJoke').addEventListener('click', getJokes);
+
+
+        function getJokes() {
+            fetch('https://icanhazdadjoke.com/', {
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+                .then(res => res.json())
+                .then(data => {
+                    document.getElementById('jokes').innerHTML = data.joke;
+                })
+                .catch(error => alert(error))
+        }
+
+
+
+    </script>
+</body>
+
+</html>
