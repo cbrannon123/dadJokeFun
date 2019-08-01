@@ -124,11 +124,13 @@
 
         function runImg() {
             ninja.style.visibility = 'visible'
-            setInterval(function () {
+            let pop = setInterval(function () {
 
             ninja.style.visibility = 'hidden'
+            clearInterval(pop)
             }, 1980)
-
+           
+           
         }
 
 
