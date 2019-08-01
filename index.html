@@ -100,7 +100,7 @@
         </div>
         <div style="align-self: center;" id='getJoke'>Get Joke</div>
     </div>
- <img id = "ninja" style="visibility: hidden;"src="https://static.ezgif.com/images/bg-transparent.gif"> -->
+ <img id = "ninja" src="">
 
 
     <script>
@@ -123,14 +123,14 @@
         }
 
         function runImg() {
-            ninja.style.visibility = 'visible'
+            
             let pop = setInterval(function () {
-
-            ninja.style.visibility = 'hidden'
+            
+            ninja.src = ''
             clearInterval(pop)
-            }, 1980)
+            }, 1980 )
            
-           
+                ninja.src = 'https://static.ezgif.com/images/bg-transparent.gif'
         }
 
 
